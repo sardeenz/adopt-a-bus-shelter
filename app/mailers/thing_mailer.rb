@@ -7,7 +7,7 @@ class ThingMailer < ActionMailer::Base
     mail(
       {
         to: thing.user.email,
-        subject: ["Remember to keep your bus shelter tidy!", thing.name].compact.join(' '),
+        subject: ["Remember to clean your shelter", thing.name].compact.join(' '),
       }
     )
   end

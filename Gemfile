@@ -10,8 +10,9 @@ gem 'haml', '~> 3.2.0.alpha'
 gem 'http_accept_language'
 gem 'pg'
 gem 'rails_admin'
-gem 'validates_formatting_of'
 gem 'strong_parameters'
+gem 'validates_formatting_of'
+gem 'therubyracer'
 
 platforms :ruby_18 do
   gem 'fastercsv'

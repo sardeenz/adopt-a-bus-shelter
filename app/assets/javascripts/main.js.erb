@@ -4,7 +4,7 @@ $(function() {
     center: center,
     disableDoubleClickZoom: true,
     keyboardShortcuts: false,
-    mapTypeControl: false,
+    mapTypeControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     maxZoom: 18,
     minZoom: 12,
@@ -13,7 +13,7 @@ $(function() {
     scaleControl: false,
     scrollwheel: false,
     streetViewControl: true,
-    zoom: 16,
+    zoom: 15,
     zoomControl: true
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);

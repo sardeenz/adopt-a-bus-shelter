@@ -1,13 +1,19 @@
 class Thing < ActiveRecord::Base
+
   include ActiveModel::ForbiddenAttributesProtection
   include Geokit::Geocoders
   validates_uniqueness_of :city_id, allow_nil: true
   validates_presence_of :lat, :lng
+  #validates :perms, :inclusion => {:in => [true, false]}
+#validates_acceptance_of :eula, :message => "must be abided"
+ # validates :eula, :acceptance => {:accept => true}, :on => :update
+  #validates_acceptance_of :terms 
+   validates :eula, :acceptance => false, :on => :update
+ 
   belongs_to :user
   has_many :reminders
   
-#attr_accessible :city_id, :lat, :lng
-
+ 
   def self.find_closest(lat, lng, limit=10)
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance

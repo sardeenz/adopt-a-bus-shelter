@@ -48,6 +48,7 @@ en:
     name: "Name"
     name_thing: "Give this %{thing} a name"
     organization: "Organization"
+    terms: "I agree to the terms"
     password: "Password"
     password_choose: "Choose a password"
     password_current: "Current password"

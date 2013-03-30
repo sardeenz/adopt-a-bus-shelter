@@ -1,6 +1,10 @@
 class ThingsController < ApplicationController
   respond_to :json
-
+  before_filter :get_action, :only => [:update]
+  
+  def get_action
+    puts 'got here'
+  end
   def show
     @things = Thing.find_closest(params[:lat], params[:lng], params[:limit] || 10)
     unless @things.blank?
@@ -22,6 +26,6 @@ class ThingsController < ApplicationController
   private
 
   def thing_params
-    params.require(:thing).permit(:name, :user_id, :city_id, :lng, :lat)
+    params.require(:thing).permit(:name, :user_id, :city_id, :lng, :lat )
   end
 end

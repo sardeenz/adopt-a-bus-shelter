@@ -16,8 +16,3 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
-# Ignore Thor's mail overide
-/config/initializers/setup_mail.rb
-
- 

@@ -5,8 +5,9 @@
   = f.hidden_field "user_id", :value => current_user.id
 
   %fieldset.control-group
-    = f.label "eula", t("labels.terms")
-    = f.check_box :eula
+    = f.label "eula", t("labels.eula")
+    = f.check_box "eula"
+    
   %fieldset.control-group
     = f.submit t("buttons.adopt"), :class => "btn primary"
   

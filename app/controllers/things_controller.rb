@@ -1,6 +1,6 @@
 class ThingsController < ApplicationController
   respond_to :json
-  before_filter :get_action, :only => [:update]
+  after_filter :get_action, :only => [:update]
   
   def get_action
     puts 'got here'
@@ -15,8 +15,8 @@ class ThingsController < ApplicationController
   end
 
   def update
-    @thing = Thing.find(params[:id])
-    if @thing.update_attributes(thing_params)
+    @thing = Thing.find(params[:id])  
+    if @thing.update_attributes(params[:thing])#(thing_params)
       respond_with @thing
     else
       render(json: {errors: @thing.errors}, status: 500)
@@ -26,6 +26,6 @@ class ThingsController < ApplicationController
   private
 
   def thing_params
-    params.require(:thing).permit(:name, :user_id, :city_id, :lng, :lat )
+    params.require(:thing).permit(:name, :user_id, :city_id, :lng, :lat, :eula )
   end
 end

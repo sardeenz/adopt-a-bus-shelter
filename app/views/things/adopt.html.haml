@@ -3,11 +3,12 @@
 = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   = f.hidden_field "id"
   = f.hidden_field "user_id", :value => current_user.id
+  %p
+    = check_box_tag "tos"
+    = t("defaults.terms", :terms => link_to(t("titles.terms"), "#terms", :id => "tos_link", :"data-toggle" => "modal")).html_safe
 
-  %fieldset.control-group
-    = f.label "eula", t("labels.eula")
-    = f.check_box "eula"
-    
+ 
   %fieldset.control-group
     = f.submit t("buttons.adopt"), :class => "btn primary"
-  
+    
+    

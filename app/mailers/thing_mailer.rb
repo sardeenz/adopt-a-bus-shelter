@@ -1,48 +1,36 @@
 class ThingMailer < ActionMailer::Base
   default from: "catinfo@raleighnc.gov"
   
-  def adopted(thing)
+  def adopted(thing) #sent to adoptor
     @thing = thing
     @user = thing.user
     mail(
       {
         to: thing.user.email,
-        subject: ["Thanks for adopting", thing.name].compact.join(' '),
+        subject: ["Thanks for adopting", thing.city_id].compact.join(' '),
       }
     )
 
   end
   
-  def adopted_alert(thing)
+  def adopted_alert(thing) #alert sent to admin
     @thing = thing
     @user = thing.user
     mail(
       {
-        to: thing.user.email,
-        subject: ["Thanks for adopting", thing.name].compact.join(' '),
+        to: "xfinger@gmail.com ",    #to: "catinfo@raleighnc.gov",
+        subject: ["Shelter Adopted", thing.city_id].compact.join(' '),
       }
     )
   end 
   
-  def abandoned(thing)
+  def abandoned_alert(thing, user)
     @thing = thing
-    @user = thing.user
+    @user = user
     mail(
       {
-        to: thing.user.email,
-        subject: ["Thanks for adopting", thing.name].compact.join(' '),
-      }
-    )
-
-  end
-  
-  def abandoned_alert(thing)
-    @thing = thing
-    @user = thing.user
-    mail(
-      {
-        to: thing.user.email,
-        subject: ["Thanks for adopting", thing.name].compact.join(' '),
+        to: "xfinger@gmail.com ",    #to: "catinfo@raleighnc.gov",
+        subject: ["Shelter Abandoned", thing.city_id].compact.join(' '),
       }
     )
   end 

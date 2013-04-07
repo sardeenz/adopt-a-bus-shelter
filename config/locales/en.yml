@@ -32,7 +32,8 @@ en:
     thing: "shelter"
     this_thing: "This %{thing}"
     tagline: "Claim responsibility for keeping a CAT Bus Shelter clean."
-    tos: "By signing up, you agree to the %{tos}."
+    tos: " %{tos}."
+    terms: "I agree to the %{terms}."
     voice_number: "919-555-1212"
     zip: "27601"
   errors:
@@ -48,7 +49,7 @@ en:
     name: "Name"
     name_thing: "Give this %{thing} a name"
     organization: "Organization"
-    eula: "I agree to the terms"
+    terms: "terms"
     password: "Password"
     password_choose: "Choose a password"
     password_current: "Current password"
@@ -64,6 +65,7 @@ en:
     feedback: "Send feedback"
     forgot_password: "Forgot your password?"
     remembered_password: "Never mind. I remembered my password."
+    triangle_wiki: "More Information"
   notices:
     abandoned: "%{thing} abandoned!"
     adopted: "You just adopted a %{thing}!"
@@ -83,6 +85,7 @@ en:
     sign_in: "Sign in to adopt this %{thing}"
     thank_you: "Thank you for adopting this %{thing}!"
     tos: "Terms of Service"
+    terms: "terms"
   sponsors:
     built: "CityCamp"
     cfa: "Code for America"

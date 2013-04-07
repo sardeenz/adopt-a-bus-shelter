@@ -2,9 +2,8 @@ class Thing < ActiveRecord::Base
   
   include ActiveModel::ForbiddenAttributesProtection
   belongs_to :user
-  has_many :reminders 
-  validates_acceptance_of :eula, :on => :update 
-  
+  has_many :reminders
+ 
   def self.find_closest(lat, lng, limit=10)
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance

@@ -12,6 +12,10 @@
         - else
           = render :partial => "sidebar/combo_form"
       #logos
+        %a{:href => "https://trianglewiki.org/Raleigh_Adopta_App/Adopt-A-Shelter_how-to_sign-up", :target => '_blank' }
+          = image_tag "logos/triWiki.png", :alt => t("links.triangle_wiki"), :title => t("links.triangle_wiki")
+          %br
+          %br
         #col1
           %a{:href => "http://codeforamerica.org/"}
             = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
@@ -33,3 +37,4 @@
     .table-cell.map-container
       #map
         &nbsp;
+= render :partial => "things/terms" # = this is the partial for the terms - does not work in the adopt form so has to go here

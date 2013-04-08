@@ -4,16 +4,16 @@ $(function() {
     center: center,
     disableDoubleClickZoom: true,
     keyboardShortcuts: false,
-    mapTypeControl: false,
+    mapTypeControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     maxZoom: 18,
-    minZoom: 12,
+    minZoom: 9,
     panControl: false,
     rotateControl: false,
     scaleControl: false,
     scrollwheel: false,
     streetViewControl: true,
-    zoom: 16,
+    zoom: 15,
     zoomControl: true
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -128,7 +128,7 @@ $(function() {
       }
     });
   }
-  google.maps.event.addListener(map, 'dragend', function() {
+  google.maps.event.addListener(map, 'idle', function() {
     var center = map.getCenter();
     addMarkersAround(center.lat(), center.lng());
   });

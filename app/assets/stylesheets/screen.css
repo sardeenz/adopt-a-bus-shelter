@@ -180,11 +180,11 @@ a.btn {
   width: 100%;
 }
 
-#tos {
+#tos, #terms {
   text-align: left;
 }
 
-#tos p {
+#tos p, :terms p {
   padding: 0;
   margin-bottom: 10px;
 }
@@ -207,3 +207,4 @@ img.lock {
   opacity: 0.8;
   filter: alpha(opacity=80); /* For IE8 and earlier */
 }
+ 

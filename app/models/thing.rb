@@ -1,11 +1,9 @@
 class Thing < ActiveRecord::Base
+  
   include ActiveModel::ForbiddenAttributesProtection
-  include Geokit::Geocoders
-  validates_uniqueness_of :city_id, allow_nil: true
-  validates_presence_of :lat, :lng
   belongs_to :user
   has_many :reminders
-
+ 
   def self.find_closest(lat, lng, limit=10)
     query = <<-SQL
       SELECT *, (3959 * ACOS(COS(RADIANS(?)) * COS(RADIANS(lat)) * COS(RADIANS(lng) - RADIANS(?)) + SIN(RADIANS(?)) * SIN(RADIANS(lat)))) AS distance
@@ -17,7 +15,7 @@ class Thing < ActiveRecord::Base
   end
 
   def reverse_geocode
-    @reverse_geocode ||= MultiGeocoder.reverse_geocode([lat, lng])
+    @reverse_geocode ||= GoogleGeocoder3.reverse_geocode([lat, lng])
   end
 
   def street_number

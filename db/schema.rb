@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 20130614022216) do
+
+  create_table "owners", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "thing_id"
+    t.integer  "period_of"
+    t.date     "start_date"
+    t.string   "organization_name"
+    t.string   "organization_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "organization_rep_name"
+    t.integer  "phone"
+    t.string   "email"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "shelter_name"
+    t.boolean  "abandoned",             :default => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"

@@ -58,7 +58,7 @@ $(function() {
         activeInfoWindow.close();
       }
       var infoWindow = new google.maps.InfoWindow({
-        maxWidth: 210
+        maxWidth: 510
       });
       google.maps.event.addListener(infoWindow, 'closeclick', function() {
         isWindowOpen = false;
@@ -390,7 +390,9 @@ $(function() {
         '_method': 'put',
         'thing': {
           'user_id': $('#thing_user_id').val(),
-          'name': $('#thing_name').val()
+          'organization': $('#thing_organization').val(),
+          'address': $('#thing_address').val(),
+          'city_state_zip': $('#thing_city_state_zip').val()
         }
       },
       error: function(jqXHR) {

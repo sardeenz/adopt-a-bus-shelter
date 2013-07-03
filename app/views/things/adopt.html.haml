@@ -1,0 +1,32 @@
+%h2
+  = @thing.name
+
+%p
+  = "We understand all of the requirements set forth for adopting a shelter and agree to adopt the following shelter <strong>#{@thing.name}</strong> for the period of 1 year beginning on #{Date.today.strftime('%m/%d/%Y')}".html_safe
+
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
+  = f.hidden_field "id"
+  = f.hidden_field "user_id", :value => current_user.id
+
+  %p
+    = f.label :organization
+    = f.text_field :organization, value: current_user.organization, class: 'required'
+
+  %p
+    = f.label :address
+    = f.text_field :address, value: "#{current_user.address_1} #{current_user.address_2}"
+
+  %p
+    = f.label :city_state_zip, 'City, State, Zip'
+    = f.text_field :city_state_zip, value: "#{current_user.city} #{current_user.state} #{current_user.zip}"
+
+  %p
+    This Agreement shall commence on the date first written above, and shall be of full force and effect until such time as it is terminated by either party in accordance with this section. Either party may terminate this Agreement without cause upon thirty (30) days written notice to the other party.
+
+  %p
+    = check_box_tag "tos"
+    = "By clicking adopt I acknowledge that I understand and agree that my involvement in the City of Raleigh's Adopt-A-Shelter Program is completely voluntary and that the City, its officials and employees are in no way liable for any injury or inconvenience that may result from my performance of any activity related to the Adopt-A-Shelter Program and further agree to hold the City, its officials and employees harmless."
+
+
+  %fieldset.control-group
+    = f.submit t("buttons.adopt"), :class => "btn primary"
